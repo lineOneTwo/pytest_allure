@@ -1,0 +1,52 @@
+{
+  "name": "test_login_case01",
+  "status": "passed",
+  "start": 1631859205435,
+  "stop": 1631859213091,
+  "uuid": "f07d8f77-dec2-439c-b829-5c371e5245de",
+  "historyId": "091a1966d9ff295c083ae089c192c55a",
+  "testCaseId": "6d75309f3ccd375820703601159cce02",
+  "fullName": "testcase.test_login.Test_login#test_login_case01",
+  "labels": [
+    {
+      "name": "feature",
+      "value": "登录"
+    },
+    {
+      "name": "feature",
+      "value": "若验证码错误，登录可循环登录十次"
+    },
+    {
+      "name": "parentSuite",
+      "value": "testcase"
+    },
+    {
+      "name": "suite",
+      "value": "test_login"
+    },
+    {
+      "name": "subSuite",
+      "value": "Test_login"
+    },
+    {
+      "name": "host",
+      "value": "PC-20190615RHNE"
+    },
+    {
+      "name": "thread",
+      "value": "8456-MainThread"
+    },
+    {
+      "name": "framework",
+      "value": "pytest"
+    },
+    {
+      "name": "language",
+      "value": "cpython3"
+    },
+    {
+      "name": "package",
+      "value": "testcase.test_login"
+    }
+  ]
+}
