@@ -11,14 +11,18 @@ class Test_login:
     @classmethod
     def setup_class(cls):
         cls.driver = webdriver.Chrome()
-        cls.driver.get('http://www.pingcheng.gov.cn/page/admin_zwfw/')
-        cls.driver.find_element_by_css_selector('.login_btn').click()
-        cls.driver.implicitly_wait(10)
-        cls.driver.maximize_window()
+        # cls.driver.get('http://www.pingcheng.gov.cn/page/admin_zwfw/')
+        # cls.driver.find_element_by_css_selector('.login_btn').click()
+        # cls.driver.implicitly_wait(10)
+        # cls.driver.maximize_window()
         # cls.driver.save_screenshot("../share/1.png")
 
     @allure.feature('若验证码错误，可循环登录十次')
     def test_login_case01(self):
+        self.driver.get('http://www.pingcheng.gov.cn/page/admin_zwfw/')
+        self.driver.find_element_by_css_selector('.login_btn').click()
+        self.driver.implicitly_wait(10)
+        self.driver.maximize_window()
         for i in range(10):
             currdir = 'D:/Program Files/JetBrains/PyCharm Community Edition 2020.2/pytest_allure/share'
             page = Loginpage(self.driver)
