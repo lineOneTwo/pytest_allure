@@ -11,7 +11,7 @@ class Test_login:
     @classmethod
     def setup_class(cls):
         cls.driver = webdriver.Chrome()
-        cls.driver.get('http://sqwytst.wt.com:14352/')
+        cls.driver.get('http://www.pingcheng.gov.cn/page/admin_safetyplatform/')
         cls.driver.find_element_by_css_selector('.login_btn').click()
         cls.driver.implicitly_wait(10)
         cls.driver.maximize_window()
@@ -23,16 +23,16 @@ class Test_login:
             currdir = 'D:/Program Files/JetBrains/PyCharm Community Edition 2020.2/pytest_allure/share'
             page = Loginpage(self.driver)
             page.get_picture(currdir)
-            page.search_username("18234242222")
-            page.search_password("asdqwe123")
+            page.search_username("18035285063")
+            page.search_password("bgfg1000lbfwlXP#")
             page.sleep(2)
             page.search_code(currdir)
             page.click_login()
             sleep(2)
             url = page.get_url()
-            if url != 'http://sso.wt.com:3100/loginPage?error':
+            if url != 'http://111.53.13.251:3100/loginPage?error':
                 # assert page.get_url() == 'http://sqwytst.wt.com:14352/dashboard'
-                assert page.get_title() == '首页 - 智慧网格综合管理平台'
+                assert page.get_title() == '“安易得”安全生产综合监管平台'
                 break
             else:
                 page.get_picture(currdir)
@@ -45,4 +45,4 @@ class Test_login:
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'test_login.py'])
+    pytest.main(['-s', '-v', 'test_anjian_login.py'])
