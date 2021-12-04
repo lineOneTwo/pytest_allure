@@ -21,8 +21,8 @@ class Test_Login:
     @allure.severity(allure.severity_level.CRITICAL)
     @allure.description("登录功能：用户名和密码校验")
     @allure.step("登录模块")
-    @pytest.mark.parametrize("req_data,exc_data",read_test_data("../data/登录数据.xls","登录",None,0,3))
+    @pytest.mark.parametrize("req_data,exc_data",read_test_data("../data/登录数据.xls","登录",None,7,9))
     def test_login(self,req_data,exc_data):
         res_text = login.login(json.loads(req_data))
-        print(res_text)
+        print(req_data)
         assert res_text == json.loads(exc_data)

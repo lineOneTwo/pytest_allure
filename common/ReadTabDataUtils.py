@@ -58,6 +58,7 @@ def trans_data(dict_data:dict):
 def __get_cell_value(xlUtils:XlrdUtils, sheet_index_or_name, row_num,*cols_index):
     if len(cols_index)==0:
         case_num = xlUtils.get_cell_value(sheet_index_or_name, row_num, 0)
+        print(case_num)
         moudle_name = xlUtils.get_cell_value(sheet_index_or_name, row_num, 1)
         case_name = xlUtils.get_cell_value(sheet_index_or_name, row_num, 2)
         request_method = xlUtils.get_cell_value(sheet_index_or_name, row_num, 3)
