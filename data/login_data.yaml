@@ -1,70 +1,63 @@
--
-  url: http://www.pingcheng.gov.cn/page/admin_community/
-  detail : 智慧网格登录
-  screenshot : 智慧网格登录
+- url: http://www.pingcheng.gov.cn/page/admin_community/
+  detail: 智慧网格登录
+  screenshot: 智慧网格登录
   data:
     username: "18511067360"
     password: "bgfg1000lbfwlXP#"
     imgCode: ""
-  check :
-     - 首页 - 智慧网格综合管理平台
--
-  url: http://www.pingcheng.gov.cn/page/admin_logs/
-  detail : 日志系统登录
-  screenshot : 日志系统登录
+  check:
+    - 首页 - 智慧网格综合管理平台
+- url: http://www.pingcheng.gov.cn/page/admin_logs/
+  detail: 日志系统登录
+  screenshot: 日志系统登录
   data:
     username: "18511067360"
     password: "bgfg1000lbfwlXP#"
     imgCode: ""
-  check :
-     - 日志管理
--
-  url: http://www.pingcheng.gov.cn/page/admin_community/
-  detail : 智慧网格登录
-  screenshot : 智慧网格登录
+  check:
+    - 日志管理
+- url: http://www.pingcheng.gov.cn/page/admin_community/
+  detail: 智慧网格登录
+  screenshot: 智慧网格登录
   data:
     username: "18511067360"
     password: "bgfg1000lbfwlXP#"
     imgCode: ""
-  check :
-     - 首页 - 智慧网格综合管理平台
--
-  url: http://www.pingcheng.gov.cn/page/admin_community/
-  detail : 智慧网格登录
-  screenshot : 智慧网格登录
+  check:
+    - 首页 - 智慧网格综合管理平台
+- url: http://www.pingcheng.gov.cn/page/admin_community/
+  detail: 智慧网格登录
+  screenshot: 智慧网格登录
   data:
     username: "18511067360"
     password: "bgfg1000lbfwlXP#"
     imgCode: ""
-  check :
-     - 首页 - 智慧网格综合管理平台
--
-  url: http://www.pingcheng.gov.cn/page/admin_community/
-  detail : 智慧网格登录
-  screenshot : 智慧网格登录
+  check:
+    - 首页 - 智慧网格综合管理平台
+- url: http://www.pingcheng.gov.cn/page/admin_community/
+  detail: 智慧网格登录
+  screenshot: 智慧网格登录
   data:
     username: "18511067360"
     password: "bgfg1000lbfwlXP#"
     imgCode: ""
-  check :
-     - 首页 - 智慧网格综合管理平台
--
-  url: http://www.pingcheng.gov.cn/page/admin_community/
-  detail : 智慧网格登录
-  screenshot : 智慧网格登录
+  check:
+    - 首页 - 智慧网格综合管理平台
+- url: http://www.pingcheng.gov.cn/page/admin_community/
+  detail: 智慧网格登录
+  screenshot: 智慧网格登录
   data:
     username: "18511067360"
     password: "bgfg1000lbfwlXP#"
     imgCode: ""
-  check :
-     - 首页 - 智慧网格综合管理平台
--
-  url: http://www.pingcheng.gov.cn/page/admin_community/
-  detail : 智慧网格登录
-  screenshot : 智慧网格登录
+  check:
+    - 首页 - 智慧网格综合管理平台
+- url: http://www.pingcheng.gov.cn/page/admin_community/
+  detail: 智慧网格登录
+  screenshot: 智慧网格登录
   data:
     username: "18511067360"
     password: "bgfg1000lbfwlXP#"
     imgCode: ""
-  check :
-     - 首页 - 智慧网格综合管理平台
+  check:
+    - 首页 - 智慧网格综合管理平台

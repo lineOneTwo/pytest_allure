@@ -10,8 +10,9 @@ sys.path.append(rootPath)
 from common.XlrdUtils import XlrdUtils
 import json
 
+
 # 满足定制化需求
-def read_test_data(xl_path, sheet_index_or_name = None, row_num = None, *cols_index):
+def read_test_data(xl_path, sheet_index_or_name=None, row_num=None, *cols_index):
     """
     :param xl_path: xls文件路径
     :param sheet_index_or_name: sheet页的索引或名称
@@ -23,19 +24,19 @@ def read_test_data(xl_path, sheet_index_or_name = None, row_num = None, *cols_in
     xl_dict = {}
     cell_list = []
     if sheet_index_or_name is not None and row_num is not None:
-            cell_list.append(__get_cell_value(xlUtils, sheet_index_or_name, row_num, *cols_index))
+        cell_list.append(__get_cell_value(xlUtils, sheet_index_or_name, row_num, *cols_index))
     elif sheet_index_or_name is not None and row_num is None:
         for row_num in range(1, xlUtils.get_rows_num(sheet_index_or_name)):
             cell_list.append(__get_cell_value(xlUtils, sheet_index_or_name, row_num, *cols_index))
     elif sheet_index_or_name is None and row_num is not None:
-        for sheet_index_or_name in range(0,len(xlUtils.get_sheet_names())):
-            cell_list=[]
+        for sheet_index_or_name in range(0, len(xlUtils.get_sheet_names())):
+            cell_list = []
             cell_list.append(__get_cell_value(xlUtils, sheet_index_or_name, row_num, *cols_index))
             xl_dict[sheet_index_or_name] = cell_list
     elif sheet_index_or_name is None and row_num is None:
-        for sheet_index_or_name in range(0,len(xlUtils.get_sheet_names())):
+        for sheet_index_or_name in range(0, len(xlUtils.get_sheet_names())):
             cell_list = []
-            for row_num in range(1,xlUtils.get_rows_num(sheet_index_or_name)):
+            for row_num in range(1, xlUtils.get_rows_num(sheet_index_or_name)):
                 cell_list.append(__get_cell_value(xlUtils, sheet_index_or_name, row_num, *cols_index))
                 if len(cell_list) != 0:
                     xl_dict[sheet_index_or_name] = cell_list
@@ -47,16 +48,18 @@ def read_test_data(xl_path, sheet_index_or_name = None, row_num = None, *cols_in
     else:
         return xl_dict
 
-def trans_data(dict_data:dict):
+
+def trans_data(dict_data: dict):
     payload = {}
-    for K,V  in dict_data.items():
+    for K, V in dict_data.items():
         if type(V) is dict:
             V = json.dumps(V, ensure_ascii=True)
         payload[K] = V
     return payload
 
-def __get_cell_value(xlUtils:XlrdUtils, sheet_index_or_name, row_num,*cols_index):
-    if len(cols_index)==0:
+
+def __get_cell_value(xlUtils: XlrdUtils, sheet_index_or_name, row_num, *cols_index):
+    if len(cols_index) == 0:
         case_num = xlUtils.get_cell_value(sheet_index_or_name, row_num, 0)
         print(case_num)
         moudle_name = xlUtils.get_cell_value(sheet_index_or_name, row_num, 1)

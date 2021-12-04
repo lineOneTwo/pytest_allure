@@ -17,7 +17,7 @@ class Loginpage(BasePage):
         self.driver.maximize_window()
 
     def get_picture(self, currdir):
-        self.driver.save_screenshot(currdir+"/1.png")
+        self.driver.save_screenshot(currdir + "/1.png")
         # self.driver.save_screenshot('\share\screeshots\screenshot')
 
     def search_username(self, search_key):
@@ -34,7 +34,8 @@ class Loginpage(BasePage):
         self.locator("id", "login").click()
 
     def search_job(self):
-        self.locator("xpath", "/html/body/div[1]/div/div[2]/div/div/div[2]/div[2]/div[3]/table/tbody/tr/td[2]/div/label/span[1]/span").click()
+        self.locator("xpath",
+                     "/html/body/div[1]/div/div[2]/div/div/div[2]/div[2]/div[3]/table/tbody/tr/td[2]/div/label/span[1]/span").click()
 
     def login_job(self):
         self.locator("xpath", "/html/body/div[1]/div/div[2]/div/div/div[3]/div/button[2]/span").click()

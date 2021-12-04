@@ -1,4 +1,5 @@
 from common.base import BasePage
+
 # from common.login import Login
 
 """
@@ -41,7 +42,8 @@ class Applypage(BasePage):
 
     # 选择机构
     def click_organization(self):
-        self.locator("xpath", "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[1]/div/form/div[4]/div/div/div/input").click()
+        self.locator("xpath",
+                     "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[1]/div/form/div[4]/div/div/div/input").click()
 
     def click_area(self):
         self.locator("xpath", "/html/body/div[3]/div[1]/div[1]/div[1]/ul/li/span").click()
@@ -66,7 +68,8 @@ class Applypage(BasePage):
 
     # 选择是否兼职
     def click_jobs_status(self):
-        self.locator("xpath", "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[1]/div/form/div[5]/div/div/div/input").click()
+        self.locator("xpath",
+                     "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[1]/div/form/div[5]/div/div/div/input").click()
 
     def select_all(self):
         self.locator("xpath", "/html/body/div[4]/div[1]/div[1]/ul/li[1]/span").click()
@@ -78,28 +81,37 @@ class Applypage(BasePage):
         self.locator("xpath", "/html/body/div[4]/div[1]/div[1]/ul/li[3]/span").click()
 
     def submit_select(self):
-        self.locator("xpath", "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[1]/div/form/div[6]/div/button[1]/span").click()
+        self.locator("xpath",
+                     "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[1]/div/form/div[6]/div/button[1]/span").click()
 
     def reload(self):
-        self.locator("xpath", "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[1]/div/form/div[6]/div/button[2]/span").click()
+        self.locator("xpath",
+                     "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[1]/div/form/div[6]/div/button[2]/span").click()
 
     def get_name(self):
-        return self.locator("xpath", "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[1]/div").text
+        return self.locator("xpath",
+                            "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[1]/div").text
 
     def get_phone(self):
-        return self.locator("xpath", "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[2]/div").text
+        return self.locator("xpath",
+                            "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[2]/div").text
 
     def get_organization(self):
-        return self.locator("xpath", "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[3]/div").text
+        return self.locator("xpath",
+                            "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[3]/div").text
 
     def get_status(self):
-        return self.locator("xpath", "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[6]/div/span").text
+        return self.locator("xpath",
+                            "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[6]/div/span").text
 
     def get_jod_type(self):
-        return self.locator("xpath", "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[4]/div").text
+        return self.locator("xpath",
+                            "/html/body/div/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[3]/table/tbody/tr[1]/td[4]/div").text
 
     def audit(self):
-        self.locator("xpath", "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[4]/div[2]/table/tbody/tr[1]/td[7]/div/button[1]/span").click()
+        self.locator("xpath",
+                     "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[4]/div[2]/table/tbody/tr[1]/td[7]/div/button[1]/span").click()
 
     def delete(self):
-        self.locator("xpath", "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[4]/div[2]/table/tbody/tr[1]/td[7]/div/button[2]/span").click()
+        self.locator("xpath",
+                     "/html/body/div[1]/div/div[2]/section/div/div[1]/div/main/div/div[2]/div[1]/div[4]/div[2]/table/tbody/tr[1]/td[7]/div/button[2]/span").click()

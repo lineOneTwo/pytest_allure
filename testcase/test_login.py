@@ -6,9 +6,10 @@ from page.login_page import Loginpage
 import allure
 import yaml
 
-
-f = open( 'D:/Program Files/JetBrains/PyCharm Community Edition 2020.2/pytest_allure/data/' + 'login_data.yaml', encoding='utf-8')
+f = open('D:/Program Files/JetBrains/PyCharm Community Edition 2020.2/pytest_allure/data/' + 'login_data.yaml',
+         encoding='utf-8')
 testData = yaml.safe_load(f)
+
 
 # @ddt.ddt
 @allure.feature('登录')
@@ -47,9 +48,6 @@ class test_Login:
             else:
                 page.get_picture(currdir)
                 continue
-
-
-
 
     # 环境清理
     @classmethod

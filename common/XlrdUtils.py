@@ -2,9 +2,10 @@
 
 import xlrd
 
+
 class XlrdUtils(object):
 
-    def __init__(self,filename):
+    def __init__(self, filename):
         self.workbook = xlrd.open_workbook(filename, formatting_info=True)
 
     def get_cell_value(self, sheet_index_or_name, row_index, col_index):
@@ -30,10 +31,11 @@ class XlrdUtils(object):
                 return self.workbook.sheet_by_name(sheet_index_or_name)
             else:
                 raise BaseException("Invalid Sheet Name!")
-    def get_rows_num(self,sheet_index_or_name):
+
+    def get_rows_num(self, sheet_index_or_name):
         return self.__get_sheet(sheet_index_or_name).nrows
 
-    def get_cols_num(self,sheet_index_or_name):
+    def get_cols_num(self, sheet_index_or_name):
         return self.__get_sheet(sheet_index_or_name).ncols
 
     def get_sheet_names(self):
