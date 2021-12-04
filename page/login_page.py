@@ -7,7 +7,6 @@ from common.imgCode import getCode
 
 
 class Loginpage(BasePage):
-    url = 'http://sqwytst.wt.com:14352/'
 
     # 使用继承的父类中的locator方法进行定位
     def search_login(self):
