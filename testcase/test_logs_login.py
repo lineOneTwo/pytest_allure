@@ -17,8 +17,19 @@ class Test_login:
         cls.driver.maximize_window()
         # cls.driver.save_screenshot("../share/1.png")
 
+    def add(a,b):
+        return  a + b
+    # ids 的作用
+
+    data = [(1, 2, 3), (4, 5, 9), ('1', '2', '12')]
+    ids = [f'data{d}' for d in range(len(data))]  # => 生成与数据数量相同的名称列表
+    @pytest.mark.parametrize('a, b, c', data, ids=ids)
+    def test_add(a, b, c):
+        print(f'\na,b,c的值:{a},{b},{c}')
+        assert add(a, b) == c
     @allure.feature('若验证码错误，可循环登录十次')
     def test_login_case01(self):
+
         for i in range(10):
             currdir = 'D:/Program Files/JetBrains/PyCharm Community Edition 2020.2/pytest_allure/share'
             page = Loginpage(self.driver)

@@ -18,7 +18,7 @@ class Test_login:
         # cls.driver.save_screenshot("../share/1.png")
 
     @allure.feature('若验证码错误，可循环登录十次')
-    def test_login_case01(self):
+    def test_login(self):
         for i in range(10):
             currdir = 'D:/Program Files/JetBrains/PyCharm Community Edition 2020.2/pytest_allure/share'
             page = Loginpage(self.driver)
@@ -41,6 +41,7 @@ class Test_login:
     # 环境清理
     @classmethod
     def teardown_class(cls):
+        sleep(2)
         cls.driver.quit()
 
 
