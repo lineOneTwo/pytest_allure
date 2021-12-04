@@ -109,4 +109,4 @@ class Test_apply:
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'test_apply.py'])
+    pytest.main(['-s', '-v', 'tes_apply.py'])

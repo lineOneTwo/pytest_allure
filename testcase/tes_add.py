@@ -15,4 +15,4 @@ def test_add(a, b, c):
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'test_add.py'])
+    pytest.main(['-s', '-v', 'tes_add.py'])

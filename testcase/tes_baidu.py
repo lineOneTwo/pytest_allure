@@ -33,4 +33,4 @@ class Test_baidu:
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'test_baidu.py'])
+    pytest.main(['-s', '-v', 'tes_baidu.py'])

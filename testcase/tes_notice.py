@@ -55,4 +55,4 @@ class Test_notice:
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'test_notice.py'])
+    pytest.main(['-s', '-v', 'tes_notice.py'])
