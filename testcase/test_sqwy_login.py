@@ -39,6 +39,8 @@ class Test_login:
             else:
                 page.get_picture(currdir)
                 continue
+        page.search_job('/html/body/div[1]/div/div[2]/div/div/div[2]/div[2]/div[3]/table/tbody/tr/td[2]/div/label/span[1]/span')
+        page.login_job('/html/body/div[1]/div/div[2]/div/div/div[3]/div/button[2]/span')
 
     # 环境清理
     @classmethod
