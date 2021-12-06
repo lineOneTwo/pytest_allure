@@ -12,24 +12,24 @@ class Loginpage(BasePage):
     # 使用继承的父类中的locator方法进行定位
     def search_login(self):
         self.locator("xpath", '//*[@id="app"]/div/div[1]/div/span').click()
-
+    #把窗口放最大
     def mix_windows(self):
         self.driver.maximize_window()
-
+    #登录截图
     def get_picture(self, currdir):
         self.driver.save_screenshot(currdir + "/1.png")
         # self.driver.save_screenshot('\share\screeshots\screenshot')
-
+    #账号
     def search_username(self, search_key):
         self.locator("name", "username").send_keys(search_key)
-
+    #密码
     def search_password(self, search_key):
         self.locator("name", "password").send_keys(search_key)
-
+    #验证码
     def search_code(self, currdir):
         self.locator("name", "imgCode").send_keys(getCode(currdir))
 
-    # 定位button
+    #登录
     def click_login(self):
         self.locator("id", "login").click()
 
