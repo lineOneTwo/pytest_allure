@@ -23,7 +23,7 @@ class Test_login:
             currdir = 'D:/Program Files/JetBrains/PyCharm Community Edition 2020.2/pytest_allure/share'
             page = Loginpage(self.driver)
             page.get_picture(currdir)
-            page.search_username("18035285063")
+            page.search_username("18710001032")
             page.search_password("bgfg1000lbfwlXP#")
             page.sleep(2)
             page.search_code(currdir)
@@ -32,18 +32,20 @@ class Test_login:
             url = page.get_url()
             if url != 'http://111.53.13.251:3100/loginPage?error':
                 # assert page.get_url() == 'http://sqwytst.wt.com:14352/dashboard'
-                assert page.get_title() == '“安易得”安全生产综合监管平台'
+                assert page.get_title() == '大同市“普惠、转型、绿色”政银企融资对接平台'
                 break
             else:
                 page.get_picture(currdir)
                 continue
+        page.search_job('')
+        page.login_job()
 
     # 环境清理
-    @classmethod
-    def teardown_class(cls):
-        sleep(2)
-        cls.driver.quit()
+    # @classmethod
+    # def teardown_class(cls):
+    #     sleep(2)
+    #     cls.driver.quit()
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'test_anjian_login.py'])
+    pytest.main(['-s', '-v', 'test_zyq_login.py'])

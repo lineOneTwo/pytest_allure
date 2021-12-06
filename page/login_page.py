@@ -33,9 +33,9 @@ class Loginpage(BasePage):
     def click_login(self):
         self.locator("id", "login").click()
 
-    def search_job(self):
-        self.locator("xpath",
-                     "/html/body/div[1]/div/div[2]/div/div/div[2]/div[2]/div[3]/table/tbody/tr/td[2]/div/label/span[1]/span").click()
+    def search_job(self, search_key):
+        self.locator("xpath",search_key).click()
+        #
 
     def login_job(self):
         self.locator("xpath", "/html/body/div[1]/div/div[2]/div/div/div[3]/div/button[2]/span").click()
