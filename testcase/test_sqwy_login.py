@@ -39,10 +39,8 @@ class Test_login:
             else:
                 page.get_picture(currdir)
                 continue
-        # 获取岗位弹窗的标题 传文字定位信息
-        title = page.get_text('')
-        # 未弹出选择岗位的页面，则不需要执行选择
-        if title == '':
+        # 获取岗位弹窗的标题 传文字定位信息  未弹出选择岗位的页面，则不需要执行选择
+        if page.get_text('') == '':
             pass
         else:
             page.search_job('/html/body/div[1]/div/div[2]/div/div/div[2]/div[2]/div[3]/table/tbody/tr/td[2]/div/label/span[1]/span')
