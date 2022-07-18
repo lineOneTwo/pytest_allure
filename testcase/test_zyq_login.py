@@ -45,7 +45,7 @@ class Test_login:
 
 
 
-    @allure.tag('测试文章栏目管理')
+    @allure.feature('测试文章栏目管理')
     def test_articlecolumn(self):
         driver = self.driver
         # element1 = self.driver.find_element_by_xpath('//*[@id="app"]/div/div[1]/div/div[1]/div/ul/div[1]/span/li/i')
@@ -73,7 +73,7 @@ class Test_login:
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/button[1]/span').click()
 
 
-    @allure.tag('测试文章管理')
+    @allure.feature('测试文章管理')
     def test_articleList(self):
         driver = self.driver
         # 打开文章列表
