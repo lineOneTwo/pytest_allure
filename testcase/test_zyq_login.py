@@ -91,22 +91,28 @@ class Test_login:
         driver.switch_to_frame(iframe)
         driver.find_element_by_xpath('/html/body/p').send_keys('测试内容输入')
         sleep(1)
+
         # 跳转回到主框架页
         driver.switch_to.default_content()
 
+        # 滚动至元素可见
+        ele = driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/div/div[3]/div/button[1]/span')
+        driver.execute_script("arguments[0].scrollIntoView();", ele)
+        sleep(2)
+
         # 取消
-        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/div/div[3]/div/button[1]/span')
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/div/div[3]/div/button[1]/span').click()
         sleep(2)
 
         # 切换到已终审文章
-        driver.find_element_by_xpath('//*[@id="tab-2"]')
+        driver.find_element_by_xpath('//*[@id="tab-2"]').click()
         # 查询功能
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/section/main/div[2]/div/form/div[1]/div/div/input').send_keys('人民银行')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/section/main/div[2]/div/form/div[3]/div/button[1]').click()
-        sleep(1)
+        sleep(2)
 
         # 切换拒审文章
-        driver.find_element_by_xpath('//*[@id="tab-3"]')
+        driver.find_element_by_xpath('//*[@id="tab-3"]').click()
 
 
 
