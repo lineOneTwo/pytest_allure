@@ -11,8 +11,8 @@ class Test_login:
     @classmethod
     def setup_class(cls):
         cls.driver = webdriver.Chrome()
-        cls.driver.get('http://www.pingcheng.gov.cn/page/admin_community/')
-        # cls.driver.get('http://sqwytst.wt.com:14352/')
+        #cls.driver.get('http://www.pingcheng.gov.cn/page/admin_community/')
+        cls.driver.get('http://sqwy.wt.com:5130/')
         cls.driver.find_element_by_css_selector('.login_btn').click()
         cls.driver.implicitly_wait(20)
         cls.driver.maximize_window()
@@ -31,25 +31,26 @@ class Test_login:
             page.click_login()
             sleep(2)
             url = page.get_url()
-            if url != 'http://111.53.13.251:3100/loginPage?error':
-                # url = 'http://sso.wt.com:3100/loginPage?error'
+            if url != 'http://sso.wt.com:3100/loginPage?error':
+                # url != 'http://111.53.13.251:3100/loginPage?error'
                 # assert page.get_url() == 'http://sqwytst.wt.com:14352/dashboard'
                 assert page.get_title() == '智慧网格综合管理平台'
                 break
             else:
                 page.get_picture(currdir)
                 continue
+        text = page.get_text('/html/body/div[1]/div/div[2]/div/div/div[1]/span')
         # 获取岗位弹窗的标题 传文字定位信息  未弹出选择岗位的页面，则不需要执行选择
-        if page.get_text('/html/body/div[1]/div/div[2]/div/div/div[1]/span') =='':
+        if  text =='':
             pass
         else:
             page.search_job('/html/body/div[1]/div/div[2]/div/div/div[2]/div[2]/div[3]/table/tbody/tr/td[2]/div/label/span[1]/span')
             page.login_job('/html/body/div[1]/div/div[2]/div/div/div[3]/div/button[2]/span')
 
     # 环境清理
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
+    # @classmethod
+    # def teardown_class(cls):
+    #     cls.driver.quit()
 
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ from common.imgCode import getCode
 
 
 class Loginpage(BasePage):
-    url = 'http://sqwytst.wt.com:14352/'
+    # url = 'http://111.53.13.252/admin_zyq/'
 
     # 使用继承的父类中的locator方法进行定位
     def search_login(self):
@@ -29,14 +29,20 @@ class Loginpage(BasePage):
     def search_code(self, currdir):
         self.locator("name", "imgCode").send_keys(getCode(currdir))
 
+    # 获取提示信息
+    def get_msg(self):
+        self.get_text('id','span_msg')
+
     #登录
     def click_login(self):
         self.locator("id", "login").click()
 
+    #选择岗位
     def search_job(self, search_key):
         self.locator("xpath", search_key).click()
         #/html/body/div[1]/div/div[2]/div/div/div[2]/div[2]/div[3]/table/tbody/tr/td[2]/div/label/span[1]/span
 
+    # 登录按钮
     def login_job(self, search_key):
         self.locator("xpath", search_key).click()
         # "/html/body/div[1]/div/div[2]/div/div/div[3]/div/button[2]/span"

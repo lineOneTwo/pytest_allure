@@ -11,7 +11,7 @@ def login(username, password):
     driver.find_element_by_css_selector('.login_btn').click()
     driver.save_screenshot('../share/1.png')
     for i in range(10):
-        currdir = 'D:/Program Files/JetBrains/PyCharm Community Edition 2020.2/pytest_allure/share'
+        currdir = 'D:\Project\pytest_allure\share'
         driver.find_element_by_name('username').send_keys(username)
         driver.find_element_by_name('password').send_keys(password)
         sleep(2)

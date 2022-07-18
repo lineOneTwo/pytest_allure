@@ -15,7 +15,7 @@ class BasePage:
     # 打开页面
     def open(self, url=None):
         if url is None:
-            self.driver.get(self.url)
+            self.driver.get(url)
         else:
             self.driver.get(url)
 
@@ -28,8 +28,8 @@ class BasePage:
         return self.driver.title
 
     # 获取页面文本，使用xpath定位
-    def get_text(self, path):
-        return self.locator("xpath", path).text
+    def get_text(self, name, path):
+        return self.locator(name, path).text
 
     # 获取当前url
     def get_url(self):
