@@ -1,8 +1,11 @@
+import time
+
 import pytest
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver import ActionChains
 
+import datetime
 from page.login_page import Loginpage
 import allure
 
@@ -43,8 +46,8 @@ class Test_login:
         page.search_job('/html/body/div[1]/div/div[2]/div/div/div[2]/div/div[3]/table/tbody/tr/td[2]/div/label/span[1]/span')
         page.login_job('/html/body/div[1]/div/div[2]/div/div/div[3]/div/button[2]')
 
-
-
+    # 跳过
+    @pytest.mark.skip
     @allure.feature('测试文章栏目管理')
     def test_articlecolumn(self):
         driver = self.driver
@@ -72,7 +75,7 @@ class Test_login:
         # 返回上级
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/button[1]/span').click()
 
-
+    @pytest.mark.skip
     @allure.feature('测试文章管理')
     def test_articleList(self):
         driver = self.driver
@@ -114,7 +117,7 @@ class Test_login:
         # 切换拒审文章
         driver.find_element_by_xpath('//*[@id="tab-3"]').click()
 
-
+    @pytest.mark.skip
     @allure.feature('测试企业审核')
     def test_pbcFirmInformation(self):
         driver = self.driver
@@ -145,8 +148,7 @@ class Test_login:
         # 切换到拒审企业
         driver.find_element_by_xpath('//*[@id="tab-3"]').click()
 
-
-
+    @pytest.mark.skip
     @allure.feature('测试文章审核')
     def test_pbcArticleList(self):
         driver = self.driver
@@ -164,23 +166,68 @@ class Test_login:
         # 切换到拒审列表
         driver.find_element_by_xpath('//*[@id="tab-3"]').click()
 
-
+    @pytest.mark.skip
     @allure.feature('测试资金审核')
     def test_moneyPedestrianManagementProjectDocking(self):
         driver = self.driver
-        driver.find_element_by_xpath('').click()
+        driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/moneyPedestrianManagementProjectDocking')
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[1]/div/div/input').send_keys('name')
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[2]/div/button[1]').click()
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[2]/div/button[2]').click()
+        sleep(1)
+
 
         # 切换到待银行对接项目
         driver.find_element_by_xpath('//*[@id="tab-2"]').click()
         # 查看详情
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[3]/div[3]/table/tbody/tr[1]/td[9]/div/button/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[3]/div/button/span').click()
+        sleep(1)
+
         # 切换到被拒审项目
-        driver.find_element_by_xpath('//*[@id="tab-3"]').click()
+        driver.find_element_by_xpath('//*[@id="tab-4"]').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[1]/div/div/input').send_keys('name')
+        sleep(1)
+        # 截图
+        driver.save_screenshot('../picture/jushen{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
 
+    @pytest.mark.skip
+    @allure.feature('测试法律法规')
+    def test_porTallist(self):
+        driver = self.driver
+        driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/porTallist')
+        iframe = driver.find_element_by_class_name('iframe_content')
+        driver.switch_to_frame(iframe)
 
+        a = driver.find_element_by_xpath('/html/body/div[2]/div/div[1]/div[2]/ul')
+        a.find_element_by_xpath('/html/body/div[2]/div/div[1]/div[2]/ul/li[3]/span').click()
 
+        # 跳转回到主框架页
+        driver.switch_to.default_content()
+
+        # 截图
+        driver.save_screenshot('../picture/porTallist{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
+
+    @pytest.mark.skip
+    @allure.feature('测试消息管理')
+    def test_message(self):
+        driver = self.driver
+        driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/messageManage')
+
+        # 翻页
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/button[2]/i').click()
+
+        # 截图
+        driver.save_screenshot('../picture/message{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
+
+    # @pytest.mark.skip
+    @allure.feature('资源管理')
+    def test_resourceList(self):
+        driver =self.driver
+        driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/resourceList')
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div[3]/table/tbody/tr[1]/td[1]/div/div[1]/i').click()
+        # 截图
+        driver.save_screenshot('../picture/resourceList{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
     # 环境清理
     # @classmethod
     # def teardown_class(cls):
