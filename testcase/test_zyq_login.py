@@ -9,9 +9,13 @@ import datetime
 from page.login_page import Loginpage
 import allure
 
+# 截图文件夹
+img_dir_path = '../Result_zyq_Image_Orig/'
+
 
 @allure.feature('登录')
 class Test_login:
+
     # 环境准备 前置条件
     @classmethod
     def setup_class(cls):
@@ -43,8 +47,10 @@ class Test_login:
             else:
                 page.get_picture(currdir)
                 continue
+
         page.search_job('/html/body/div[1]/div/div[2]/div/div/div[2]/div/div[3]/table/tbody/tr/td[2]/div/label/span[1]/span')
         page.login_job('/html/body/div[1]/div/div[2]/div/div/div[3]/div/button[2]')
+
 
     # 跳过
     # @pytest.mark.skip
@@ -59,15 +65,27 @@ class Test_login:
 
         # 打开文章栏目
         driver.get('http://111.53.13.252/admin_zyq/?code=Hst0Ng#/articleColumn')
+
         # 添加栏目
+        articlecolumn_add_img = img_dir_path + 'articlecolumn_add.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/button[2]/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[4]/div/div/div[2]/form/div/div/div/input').send_keys('栏目')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[4]/div/div/div[3]/div/button[1]/span').click()
+        driver.save_screenshot(articlecolumn_add_img)
         sleep(1)
 
+
+        # # 截图
+        # driver.save_screenshot(
+        #     '../Result_zyq_Image_Orig/roleList{0}.png'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))))
+
+
+
         # 编辑栏目
+        articlecolumn_edit_img = img_dir_path + 'articlecolumn_edit.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div[3]/table/tbody/tr/td[5]/div/button[1]').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div/div[3]/div/button[2]/span').click()
+        driver.save_screenshot(articlecolumn_edit_img)
         sleep(1)
 
 
@@ -200,7 +218,7 @@ class Test_login:
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[1]/div/div/input').send_keys('name')
         sleep(1)
         # 截图
-        driver.save_screenshot('../picture/jushen{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
+        driver.save_screenshot('../Result_zyq_Image_Orig/jushen{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
         sleep(1)
 
     # @pytest.mark.skip
@@ -218,7 +236,7 @@ class Test_login:
         driver.switch_to.default_content()
 
         # 截图
-        driver.save_screenshot('../picture/porTallist{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
+        driver.save_screenshot('../Result_zyq_Image_Orig/porTallist{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
 
     # @pytest.mark.skip
     @allure.feature('测试消息管理')
@@ -230,7 +248,7 @@ class Test_login:
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/button[2]/i').click()
         sleep(1)
         # 截图
-        driver.save_screenshot('../picture/message{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
+        driver.save_screenshot('../Result_zyq_Image_Orig/message{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
 
     # @pytest.mark.skip
     @allure.feature('资源管理')
@@ -240,7 +258,7 @@ class Test_login:
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div[3]/table/tbody/tr[1]/td[1]/div/div[1]/i').click()
         sleep(1)
         # 截图
-        driver.save_screenshot('../picture/resourceList{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
+        driver.save_screenshot('../Result_zyq_Image_Orig/resourceList{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
 
     # @pytest.mark.skip
     @allure.feature('角色管理')
@@ -264,13 +282,13 @@ class Test_login:
 
         # 删除角色
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[3]/div[3]/table/tbody/tr[1]/td[4]/div/button[2]/span').click()
-        driver.find_element_by_xpath('/html/body/div[7]/div/div[3]/button[2]/span').click()
+        driver.find_element_by_xpath('/html/body/div[2]/div/div[3]/button[2]').click()
         sleep(3)
 
 
         # 截图
         driver.save_screenshot(
-            '../picture/roleList{0}.png'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))))
+            '../Result_zyq_Image_Orig/roleList{0}.png'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))))
 
     # @pytest.mark.skip
     @allure.feature('用户管理')
@@ -284,8 +302,8 @@ class Test_login:
         sleep(1)
 
         # 下拉列表
-        a = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[1]/ul')
-        a.find_element_by_xpath('/html/body/div[2]/div[1]/div[1]/ul/li[1]').click()
+        a = driver.find_element_by_xpath('/html/body/div[3]/div[1]/div[1]/ul')
+        a.find_element_by_xpath('/html/body/div[3]/div[1]/div[1]/ul/li[1]').click()
 
         # 查询按钮
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[3]/div/button[1]/span').click()
@@ -293,7 +311,7 @@ class Test_login:
 
         # 截图
         driver.save_screenshot(
-            '../picture/userList{0}.png'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))))
+            '../Result_zyq_Image_Orig/userList{0}.png'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))))
 
 
     # 环境清理
