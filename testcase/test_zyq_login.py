@@ -47,7 +47,7 @@ class Test_login:
         page.login_job('/html/body/div[1]/div/div[2]/div/div/div[3]/div/button[2]')
 
     # 跳过
-    @pytest.mark.skip
+    # @pytest.mark.skip
     @allure.feature('测试文章栏目管理')
     def test_articlecolumn(self):
         driver = self.driver
@@ -63,10 +63,12 @@ class Test_login:
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/button[2]/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[4]/div/div/div[2]/form/div/div/div/input').send_keys('栏目')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[4]/div/div/div[3]/div/button[1]/span').click()
+        sleep(1)
 
         # 编辑栏目
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div[3]/table/tbody/tr/td[5]/div/button[1]').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div/div[3]/div/button[2]/span').click()
+        sleep(1)
 
 
         # 下级栏目
@@ -74,8 +76,9 @@ class Test_login:
         sleep(1)
         # 返回上级
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/button[1]/span').click()
+        sleep(1)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     @allure.feature('测试文章管理')
     def test_articleList(self):
         driver = self.driver
@@ -109,6 +112,7 @@ class Test_login:
 
         # 切换到已终审文章
         driver.find_element_by_xpath('//*[@id="tab-2"]').click()
+        sleep(1)
         # 查询功能
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/section/main/div[2]/div/form/div[1]/div/div/input').send_keys('人民银行')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/section/main/div[2]/div/form/div[3]/div/button[1]').click()
@@ -116,8 +120,9 @@ class Test_login:
 
         # 切换拒审文章
         driver.find_element_by_xpath('//*[@id="tab-3"]').click()
+        sleep(1)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     @allure.feature('测试企业审核')
     def test_pbcFirmInformation(self):
         driver = self.driver
@@ -130,6 +135,7 @@ class Test_login:
         # 先确定ui，再确定li
         a = driver.find_element_by_xpath('/html/body/div[3]/div[1]/div[1]/ul')
         a.find_element_by_xpath('/html/body/div[3]/div[1]/div[1]/ul/li[3]').click()
+        sleep(1)
         # 查询按钮
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[3]/div/button[1]').click()
 
@@ -143,12 +149,13 @@ class Test_login:
         # 查看详情
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[3]/div[3]/table/tbody/tr[1]/td[8]/div/button/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[3]/div/button[2]/span').click()
+        sleep(1)
 
 
         # 切换到拒审企业
         driver.find_element_by_xpath('//*[@id="tab-3"]').click()
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     @allure.feature('测试文章审核')
     def test_pbcArticleList(self):
         driver = self.driver
@@ -159,14 +166,17 @@ class Test_login:
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[2]/div/label[2]/span[1]/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[3]/div/button[1]').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[3]/div/button[2]/span').click()
+        sleep(1)
 
         # 切换到已审核列表
         driver.find_element_by_xpath('//*[@id="tab-2"]').click()
+        sleep(1)
 
         # 切换到拒审列表
         driver.find_element_by_xpath('//*[@id="tab-3"]').click()
+        sleep(1)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     @allure.feature('测试资金审核')
     def test_moneyPedestrianManagementProjectDocking(self):
         driver = self.driver
@@ -179,6 +189,7 @@ class Test_login:
 
         # 切换到待银行对接项目
         driver.find_element_by_xpath('//*[@id="tab-2"]').click()
+        sleep(1)
         # 查看详情
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[3]/div[3]/table/tbody/tr[1]/td[9]/div/button/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[3]/div/button/span').click()
@@ -190,8 +201,9 @@ class Test_login:
         sleep(1)
         # 截图
         driver.save_screenshot('../picture/jushen{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
+        sleep(1)
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     @allure.feature('测试法律法规')
     def test_porTallist(self):
         driver = self.driver
@@ -208,7 +220,7 @@ class Test_login:
         # 截图
         driver.save_screenshot('../picture/porTallist{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
 
-    @pytest.mark.skip
+    # @pytest.mark.skip
     @allure.feature('测试消息管理')
     def test_message(self):
         driver = self.driver
@@ -216,7 +228,7 @@ class Test_login:
 
         # 翻页
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/button[2]/i').click()
-
+        sleep(1)
         # 截图
         driver.save_screenshot('../picture/message{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
 
@@ -226,8 +238,64 @@ class Test_login:
         driver =self.driver
         driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/resourceList')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div[3]/table/tbody/tr[1]/td[1]/div/div[1]/i').click()
+        sleep(1)
         # 截图
         driver.save_screenshot('../picture/resourceList{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
+
+    # @pytest.mark.skip
+    @allure.feature('角色管理')
+    def test_roleList(self):
+        driver = self.driver
+        driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/roleList')
+        sleep(3)
+        # 添加角色
+        driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div[2]/section/div/div[2]/button/span').click()
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[2]/form/div[1]/div/div[1]/input').send_keys('test')
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[2]/form/div[2]/div/div[1]/input').send_keys('tese')
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[3]/div/button[2]/span').click()
+        sleep(3)
+
+        # 查询角色
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[1]/div/div/input').send_keys('test')
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[2]/div/button[1]/span').click()
+        sleep(3)
+
+
+        # 删除角色
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[3]/div[3]/table/tbody/tr[1]/td[4]/div/button[2]/span').click()
+        driver.find_element_by_xpath('/html/body/div[7]/div/div[3]/button[2]/span').click()
+        sleep(3)
+
+
+        # 截图
+        driver.save_screenshot(
+            '../picture/roleList{0}.png'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))))
+
+    # @pytest.mark.skip
+    @allure.feature('用户管理')
+    def test_userList(self):
+        driver = self.driver
+        driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/userList')
+
+        # 查询用户
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[1]/div/div/input').send_keys('人行')
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[2]/div/div/div/input').click()
+        sleep(1)
+
+        # 下拉列表
+        a = driver.find_element_by_xpath('/html/body/div[2]/div[1]/div[1]/ul')
+        a.find_element_by_xpath('/html/body/div[2]/div[1]/div[1]/ul/li[1]').click()
+
+        # 查询按钮
+        driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[3]/div/button[1]/span').click()
+        sleep(1)
+
+        # 截图
+        driver.save_screenshot(
+            '../picture/userList{0}.png'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))))
+
+
     # 环境清理
     # @classmethod
     # def teardown_class(cls):
