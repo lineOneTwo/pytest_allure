@@ -104,7 +104,9 @@ class Test_login:
         driver.get('http://111.53.13.252/admin_zyq/?code=Hst0Ng#/articleList')
         # 点击机构列表
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/section/aside/div/div[1]/div/span[2]').click()
+
         # 点击添加文章按钮
+        articleList_add_img = img_dir_path + 'articleList_add.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/section/main/div[3]/button/span').click()
         # 输入内容
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('文章标题')
@@ -127,6 +129,8 @@ class Test_login:
         # 取消
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/div/div[3]/div/button[1]/span').click()
         sleep(2)
+        driver.save_screenshot(articleList_add_img)
+
 
         # 切换到已终审文章
         driver.find_element_by_xpath('//*[@id="tab-2"]').click()
