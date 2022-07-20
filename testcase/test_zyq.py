@@ -319,6 +319,7 @@ class Test_login:
         driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/userList')
 
         # 查询用户
+        userlist_inquire_img = img_dir_path + 'userlist_inquire.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[1]/div/div/input').send_keys('人行')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[2]/div/div/div/input').click()
         sleep(1)
@@ -329,6 +330,7 @@ class Test_login:
 
         # 查询按钮
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[3]/div/button[1]/span').click()
+        driver.save_screenshot(userlist_inquire_img)
         sleep(1)
 
         # 截图
