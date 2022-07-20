@@ -191,11 +191,12 @@ class Test_login:
         driver.get('http://111.53.13.252/admin_zyq/?code=Hst0Ng#/pbcArticleList')
 
         # 查询
-
+        pbcArticleList_inquire_img = img_dir_path + 'pbcArticleList_inquire.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[1]/div/div/input').send_keys('标题')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[2]/div/label[2]/span[1]/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[3]/div/button[1]').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[3]/div/button[2]/span').click()
+        driver.save_screenshot(pbcArticleList_inquire_img)
         sleep(1)
 
         # 切换到已审核列表
@@ -211,9 +212,13 @@ class Test_login:
     def test_moneyPedestrianManagementProjectDocking(self):
         driver = self.driver
         driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/moneyPedestrianManagementProjectDocking')
+
+        # 查询
+        moneyPedestrianManagementProjectDocking_inquire_img = img_dir_path + 'moneyPedestrianManagementProjectDocking_inquire.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[1]/div/div/input').send_keys('name')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[2]/div/button[1]').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[2]/div/button[2]').click()
+        driver.save_screenshot(moneyPedestrianManagementProjectDocking_inquire_img)
         sleep(1)
 
 
