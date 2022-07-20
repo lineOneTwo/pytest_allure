@@ -136,8 +136,10 @@ class Test_login:
         driver.find_element_by_xpath('//*[@id="tab-2"]').click()
         sleep(1)
         # 查询功能
+        articleList_select_img = img_dir_path + 'articleList_select.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/section/main/div[2]/div/form/div[1]/div/div/input').send_keys('人民银行')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/section/main/div[2]/div/form/div[3]/div/button[1]').click()
+        driver.save_screenshot(articleList_select_img)
         sleep(2)
 
         # 切换拒审文章
@@ -151,6 +153,7 @@ class Test_login:
         driver.get('http://111.53.13.252/admin_zyq/?code=Hst0Ng#/pbcFirmInformation')
 
         # 企业名称、规模查询
+        pbcFirmInformation_inquire_img = img_dir_path + 'pbcFirmInformation_inquire.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[1]/div/div/input').send_keys('name')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[2]/div/div/div/input').click()
         sleep(2)
@@ -160,19 +163,23 @@ class Test_login:
         sleep(1)
         # 查询按钮
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[3]/div/button[1]').click()
+        driver.save_screenshot(pbcFirmInformation_inquire_img)
 
         # 切换到已审企业
         driver.find_element_by_xpath('//*[@id="tab-2"]').click()
         # 查询后重置
+        pbcFirmInformation_reset_img = img_dir_path + 'pbcFirmInformation_reset.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[1]/div/div/input').send_keys('name')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[3]/div/button[1]/span').click()
         sleep(2)
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[3]/div/button[2]/span').click()
+        driver.save_screenshot(pbcFirmInformation_reset_img)
         # 查看详情
+        pbcFirmInformation_detail_img = img_dir_path + 'pbcFirmInformation_detail.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[3]/div[3]/table/tbody/tr[1]/td[8]/div/button/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[3]/div/button[2]/span').click()
         sleep(1)
-
+        driver.save_screenshot(pbcFirmInformation_detail_img)
 
         # 切换到拒审企业
         driver.find_element_by_xpath('//*[@id="tab-3"]').click()
@@ -184,6 +191,7 @@ class Test_login:
         driver.get('http://111.53.13.252/admin_zyq/?code=Hst0Ng#/pbcArticleList')
 
         # 查询
+
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[1]/div/div/input').send_keys('标题')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[2]/div/label[2]/span[1]/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[3]/div/button[1]').click()
@@ -326,4 +334,4 @@ class Test_login:
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'test_zyq_login.py'])
+    pytest.main(['-s', '-v', 'test_zyq.py'])
