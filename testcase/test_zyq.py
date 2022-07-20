@@ -225,18 +225,20 @@ class Test_login:
         # 切换到待银行对接项目
         driver.find_element_by_xpath('//*[@id="tab-2"]').click()
         sleep(1)
-        # 查看详情
+        # 详情
+        moneyPedestrianManagementProjectDocking_detail_img = img_dir_path + 'moneyPedestrianManagementProjectDocking_detail.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[3]/div[3]/table/tbody/tr[1]/td[9]/div/button/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[3]/div/button/span').click()
+        driver.save_screenshot(moneyPedestrianManagementProjectDocking_detail_img)
         sleep(1)
 
         # 切换到被拒审项目
         driver.find_element_by_xpath('//*[@id="tab-4"]').click()
+        # 查询
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[2]/div/form/div[1]/div/div/input').send_keys('name')
         sleep(1)
-        # 截图
-        driver.save_screenshot('../Result_zyq_Image_Orig/jushen{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
-        sleep(1)
+        # # 截图
+        # driver.save_screenshot('../Result_zyq_Image_Orig/jushen{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
 
     # @pytest.mark.skip
     @allure.feature('测试法律法规')
