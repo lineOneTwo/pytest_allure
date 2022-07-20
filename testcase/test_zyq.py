@@ -286,28 +286,31 @@ class Test_login:
         driver.get('http://111.53.13.252/admin_zyq/?code=6UHGIE#/roleList')
         sleep(3)
         # 添加角色
+        rolelist_add_img = img_dir_path + 'rolelist_add.png'
         driver.find_element_by_xpath(
             '//*[@id="app"]/div/div[2]/section/div/div[2]/button/span').click()
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[2]/form/div[1]/div/div[1]/input').send_keys('test')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[2]/form/div[2]/div/div[1]/input').send_keys('tese')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[5]/div/div[3]/div/button[2]/span').click()
+        driver.save_screenshot('../Result_zyq_Image_Orig/resourceList{0}.png'.format(time.strftime('%Y-%m-%d',time.localtime(time.time()))))
+        driver.save_screenshot(rolelist_add_img)
         sleep(3)
 
         # 查询角色
+        rolelist_inquire_img = img_dir_path + 'rolelist_inquire.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[1]/div/div/input').send_keys('test')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/form/div[2]/div/button[1]/span').click()
+        driver.save_screenshot(rolelist_inquire_img)
         sleep(3)
 
 
         # 删除角色
+        rolelist_delete_img = img_dir_path + 'rolelist_delete.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[3]/div[3]/table/tbody/tr[1]/td[4]/div/button[2]/span').click()
         driver.find_element_by_xpath('/html/body/div[2]/div/div[3]/button[2]').click()
+        driver.save_screenshot(rolelist_delete_img)
         sleep(3)
 
-
-        # 截图
-        driver.save_screenshot(
-            '../Result_zyq_Image_Orig/roleList{0}.png'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))))
 
     # @pytest.mark.skip
     @allure.feature('用户管理')
