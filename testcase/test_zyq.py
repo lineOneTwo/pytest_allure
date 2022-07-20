@@ -333,16 +333,12 @@ class Test_login:
         driver.save_screenshot(userlist_inquire_img)
         sleep(1)
 
-        # 截图
-        driver.save_screenshot(
-            '../Result_zyq_Image_Orig/userList{0}.png'.format(time.strftime('%Y-%m-%d', time.localtime(time.time()))))
-
 
     # 环境清理
-    # @classmethod
-    # def teardown_class(cls):
-    #     sleep(2)
-    #     cls.driver.quit()
+    @classmethod
+    def teardown_class(cls):
+        sleep(2)
+        cls.driver.quit()
 
 
 if __name__ == '__main__':
