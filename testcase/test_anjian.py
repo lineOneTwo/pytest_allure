@@ -10,7 +10,7 @@ class Test_login:
     # 环境准备 前置条件
     @classmethod
     def setup_class(cls):
-        cls.driver = webdriver.Chrome()
+        cls.driver = webdriver.Chrome(executable_path=r'D:\Project\pytest_allure\chromedriver.exe')
         cls.driver.get('http://www.pingcheng.gov.cn/page/admin_safetyplatform/')
         cls.driver.find_element_by_css_selector('.login_btn').click()
         cls.driver.implicitly_wait(10)
@@ -38,6 +38,35 @@ class Test_login:
                 page.get_picture(currdir)
                 continue
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     # 环境清理
     @classmethod
     def teardown_class(cls):
@@ -46,4 +75,4 @@ class Test_login:
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'test_anjian_login.py'])
+    pytest.main(['-s', '-v', 'test_anjian.py'])
