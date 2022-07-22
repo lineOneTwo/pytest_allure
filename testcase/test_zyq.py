@@ -34,7 +34,7 @@ class Test_login:
             page = Loginpage(self.driver)
             page.get_picture(currdir)
             page.search_username("18710001032")
-            page.search_password("bgfg1000lbfwlXP#")
+            page.search_password("F&iijuq1vX&PR")
             page.sleep(2)
             page.search_code(currdir)
             page.click_login()
@@ -65,7 +65,7 @@ class Test_login:
 
         # 打开文章栏目
         driver.get('http://111.53.13.252/admin_zyq/?code=Hst0Ng#/articleColumn')
-
+        sleep(1)
         # 添加栏目
         articlecolumn_add_img = img_dir_path + 'articlecolumn_add.png'
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/button[2]/span').click()
@@ -102,6 +102,7 @@ class Test_login:
         driver = self.driver
         # 打开文章列表
         driver.get('http://111.53.13.252/admin_zyq/?code=Hst0Ng#/articleList')
+        sleep(1)
         # 点击机构列表
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/section/aside/div/div[1]/div/span[2]').click()
 
@@ -151,6 +152,7 @@ class Test_login:
     def test_pbcFirmInformation(self):
         driver = self.driver
         driver.get('http://111.53.13.252/admin_zyq/?code=Hst0Ng#/pbcFirmInformation')
+        sleep(1)
 
         # 企业名称、规模查询
         pbcFirmInformation_inquire_img = img_dir_path + 'pbcFirmInformation_inquire.png'
@@ -189,6 +191,7 @@ class Test_login:
     def test_pbcArticleList(self):
         driver = self.driver
         driver.get('http://111.53.13.252/admin_zyq/?code=Hst0Ng#/pbcArticleList')
+        sleep(1)
 
         # 查询
         pbcArticleList_inquire_img = img_dir_path + 'pbcArticleList_inquire.png'
