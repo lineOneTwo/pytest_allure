@@ -31,7 +31,7 @@ class WinAuto:
 
 
 
-# if __name__ == '__main__':
-#   window = WinAuto("#32770","打开")
-#   window.file_input(r"C:\Users\Administrator\2021.jpg")
-#   window.open_button_click()
+if __name__ == '__main__':
+  window = WinAuto("#32770","打开")
+  window.file_input(r"C:\Users\Administrator\2021.jpg")
+  window.open_button_click()

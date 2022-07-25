@@ -115,6 +115,7 @@ class Test_login:
         # 上传附件按钮
         driver.find_element_by_xpath(
             '//*[@id="app"]/div/div[2]/section/div/div[1]/div/div/div[2]/form/div[3]/div/div/div/button').click()
+        sleep(2)
         # 上传附件
         window = WinAuto("#32770", "打开")
         window.file_input(r"C:\Users\Administrator\2021.jpg")
