@@ -105,13 +105,27 @@ class Test_login:
         self.driver.find_element_by_xpath('/html/body/div[4]/div[1]/div/div[2]/table[1]/tbody/tr[6]/td[2]/div/span').click()
 
         #切换到富文本
-        iframe =self.driver.find_element_by_id('ueditor_0')
+        iframe =self.driver.find_element_by_id('ueditor_3')
         self.driver.switch_to_frame(iframe)
         self.driver.find_element_by_xpath('/html/body/p').send_keys('测试内容输入')
         sleep(1)
 
         # 跳转回到主框架页
         self.driver.switch_to.default_content()
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[3]/div/button[2]/span').click()
+
+        # 查询动态
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[1]/div/div/input').send_keys('name')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[2]/div/button[1]/span').click()
+        sleep(1)
+
+        # 编辑动态
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr/td[4]/div/button[1]/span').click()
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[2]/div/div/div[3]/div/button[1]').click()
+
+        # 删除动态
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr/td[4]/div/button[2]/span').click()
+        self.driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/button[2]').click()
 
     # 环境清理
     @classmethod
