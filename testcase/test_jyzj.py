@@ -84,28 +84,11 @@ class Test_login:
         self.driver.save_screenshot(school_delete_img)
         sleep(1)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        # 翻页
+        school_nextpage_img = img_dir_path + 'school_nextpage.png'
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[4]/button/span').click()
+        self.driver.save_screenshot(school_nextpage_img)
+        sleep(1)
 
 
     # 环境清理
