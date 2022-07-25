@@ -3,8 +3,7 @@ import time
 import pytest
 from time import sleep
 from selenium import webdriver
-from selenium.webdriver import ActionChains
-
+from common.winauto import WinAuto
 import datetime
 from page.login_page import Loginpage
 import allure
@@ -19,7 +18,7 @@ class Test_login:
     # 环境准备 前置条件
     @classmethod
     def setup_class(cls):
-        cls.driver = webdriver.Chrome(executable_path=r'D:\Project\pytest_allure\chromedriver.exe')
+        cls.driver = webdriver.Chrome(executable_path=r'D:/Project/pytest_allure/chromedriver.exe')
         cls.driver.get('http://111.53.13.252/admin_zyq/')
         cls.driver.find_element_by_css_selector('.login_btn').click()
         cls.driver.implicitly_wait(10)
@@ -27,7 +26,7 @@ class Test_login:
 
     @allure.feature('若验证码错误，可循环登录十次')
     def test_login(self):
-        currdir = 'D:\Project\pytest_allure\share'
+        currdir = r'D:/Project/pytest_allure/share'
         page = Loginpage(self.driver)
 
         for i in range(10):
@@ -112,6 +111,15 @@ class Test_login:
         # 输入内容
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('文章标题')
         driver.find_element_by_xpath('//*[@id="app"]/div/div[2]/section/div/div[1]/div/div/div[2]/form/div[2]/div/div/input').send_keys('from')
+
+        # 上传附件按钮
+        driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div[2]/section/div/div[1]/div/div/div[2]/form/div[3]/div/div/div/button').click()
+        # 上传附件
+        window = WinAuto("#32770", "打开")
+        window.file_input(r"C:\Users\Administrator\2021.jpg")
+        window.open_button_click()
+
 
         #切换到富文本
         iframe = driver.find_element_by_id('ueditor_0')

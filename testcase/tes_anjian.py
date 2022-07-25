@@ -75,4 +75,4 @@ class Test_login:
 
 
 if __name__ == '__main__':
-    pytest.main(['-s', '-v', 'test_anjian.py'])
+    pytest.main(['-s', '-v', 'tes_anjian.py'])
