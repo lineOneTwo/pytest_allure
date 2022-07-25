@@ -90,6 +90,28 @@ class Test_login:
         self.driver.save_screenshot(school_nextpage_img)
         sleep(1)
 
+    # @pytest.mark.skip
+    @allure.feature('测试学校动态')
+    def test_schoolDynamic(self):
+        # 切换到学校动态
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/ul/li[2]/span/a').click()
+        # 添加动态
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/aside/div/div[1]/div').click()
+        sleep(1)
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[2]/button/span').click()
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('name')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[2]/div/div/input').click()
+        sleep(1)
+        self.driver.find_element_by_xpath('/html/body/div[4]/div[1]/div/div[2]/table[1]/tbody/tr[6]/td[2]/div/span').click()
+
+        #切换到富文本
+        iframe =self.driver.find_element_by_id('ueditor_0')
+        self.driver.switch_to_frame(iframe)
+        self.driver.find_element_by_xpath('/html/body/p').send_keys('测试内容输入')
+        sleep(1)
+
+        # 跳转回到主框架页
+        self.driver.switch_to.default_content()
 
     # 环境清理
     @classmethod
