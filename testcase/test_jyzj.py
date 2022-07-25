@@ -4,6 +4,8 @@ from selenium import webdriver
 from page.login_page import Loginpage
 import allure
 
+# 截图文件夹
+img_dir_path = '../Result_jyzj_Image_Orig/'
 
 @allure.feature('登录')
 class Test_login:
@@ -43,10 +45,44 @@ class Test_login:
                 page.get_picture(currdir)
                 continue
 
+    # 跳过
+    # @pytest.mark.skip
+    @allure.feature('测试学校管理')
+    def test_school(self):
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/ul/li[1]/span/a').click()
+        sleep(1)
 
+        # 添加学校
+        school_add_img = img_dir_path + 'school_add.png'
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[2]/button/span').click()
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('school')
+        # 略去 选择类型 简介 上传图片
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[3]/div/button[2]').click()
+        self.driver.save_screenshot(school_add_img)
+        sleep(1)
 
+        # 查询学校
+        school_inquire_img = img_dir_path + 'school_inquire.png'
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[1]/div/div/input').send_keys('school')
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[2]/div/button[1]').click()
+        self.driver.save_screenshot(school_inquire_img)
+        sleep(1)
 
+        # 编辑学校
+        school_edit_img = img_dir_path + 'school_edit.png'
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr[1]/td[3]/div/button[1]').click()
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[2]/div/div/div[3]/div/button[1]/span').click()
+        self.driver.save_screenshot(school_edit_img)
+        sleep(1)
 
+        # 删除学校
+        school_delete_img = img_dir_path + 'school_delete.png'
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr[1]/td[3]/div/button[2]/span').click()
+        self.driver.find_element_by_xpath('/html/body/div[2]/div/div[3]/button[2]/span').click()
+        self.driver.save_screenshot(school_delete_img)
+        sleep(1)
 
 
 
