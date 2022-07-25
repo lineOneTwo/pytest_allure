@@ -7,6 +7,7 @@ import allure
 # 截图文件夹
 img_dir_path = '../Result_jyzj_Image_Orig/'
 
+
 @allure.feature('登录')
 class Test_login:
     # 环境准备 前置条件
@@ -55,9 +56,11 @@ class Test_login:
         # 添加学校
         school_add_img = img_dir_path + 'school_add.png'
         self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[2]/button/span').click()
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('school')
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('school')
         # 略去 选择类型 简介 上传图片
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[3]/div/button[2]').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/div[1]/div/div/div[3]/div/button[2]').click()
         self.driver.save_screenshot(school_add_img)
         sleep(1)
 
@@ -72,14 +75,17 @@ class Test_login:
 
         # 编辑学校
         school_edit_img = img_dir_path + 'school_edit.png'
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr[1]/td[3]/div/button[1]').click()
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[2]/div/div/div[3]/div/button[1]/span').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr[1]/td[3]/div/button[1]').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/div[2]/div/div/div[3]/div/button[1]/span').click()
         self.driver.save_screenshot(school_edit_img)
         sleep(1)
 
         # 删除学校
         school_delete_img = img_dir_path + 'school_delete.png'
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr[1]/td[3]/div/button[2]/span').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr[1]/td[3]/div/button[2]/span').click()
         self.driver.find_element_by_xpath('/html/body/div[2]/div/div[3]/button[2]/span').click()
         self.driver.save_screenshot(school_delete_img)
         sleep(1)
@@ -99,32 +105,41 @@ class Test_login:
         self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/aside/div/div[1]/div').click()
         sleep(1)
         self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[2]/button/span').click()
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('name')
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[2]/div/div/input').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('name')
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[2]/div/div/input').click()
         sleep(1)
-        self.driver.find_element_by_xpath('/html/body/div[4]/div[1]/div/div[2]/table[1]/tbody/tr[6]/td[2]/div/span').click()
+        self.driver.find_element_by_xpath(
+            '/html/body/div[4]/div[1]/div/div[2]/table[1]/tbody/tr[6]/td[2]/div/span').click()
 
-        #切换到富文本
-        iframe =self.driver.find_element_by_id('ueditor_3')
-        self.driver.switch_to_frame(iframe)
+        # 切换到富文本
+        iframe = self.driver.find_element_by_xpath('//*[@id="ueditor_10"]')
+        self.driver.switch_to.frame(iframe)
         self.driver.find_element_by_xpath('/html/body/p').send_keys('测试内容输入')
         sleep(1)
 
         # 跳转回到主框架页
         self.driver.switch_to.default_content()
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[3]/div/button[2]/span').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/div[1]/div/div/div[3]/div/button[2]/span').click()
 
         # 查询动态
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[1]/div/div/input').send_keys('name')
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[2]/div/button[1]/span').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[1]/div/div/input').send_keys('name')
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[2]/div/button[1]/span').click()
         sleep(1)
 
         # 编辑动态
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr/td[4]/div/button[1]/span').click()
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[2]/div/div/div[3]/div/button[1]').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr/td[4]/div/button[1]/span').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/div[2]/div/div/div[3]/div/button[1]').click()
 
         # 删除动态
-        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr/td[4]/div/button[2]/span').click()
+        self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr/td[4]/div/button[2]/span').click()
         self.driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/button[2]').click()
 
     # 环境清理
