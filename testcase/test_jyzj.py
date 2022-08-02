@@ -147,6 +147,50 @@ class Test_login:
             '//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr/td[4]/div/button[2]/span').click()
         self.driver.find_element_by_xpath('/html/body/div[3]/div/div[3]/button[2]').click()
 
+    # @pytest.mark.skip
+    @allure.feature('测试名师管理')
+    def test_teacher(self):
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/ul/li[3]/span/a')
+        sleep(1)
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/aside/div/div[1]/div/span[2]').click() # 点击学校
+        sleep(1)
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[2]/button/span').click() # 添加按钮
+
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('teacher') # 输入姓名
+
+        # 滚动页面直到元素可见
+        ele = self.driver.find_element_by_xpath(
+            '//*[@id="app"]/div/div/section/div/div[1]/div/div/div[3]/div/button[2]/span')
+        self.driver.execute_script("arguments[0].scrollIntoView();", ele)
+        sleep(1)
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[3]/div/button[2]/span').click() # 确认添加
+
+        # 查询
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[1]/div/div/input').send_keys('teacher')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[2]/div/button[1]').click()
+        sleep(1)
+
+        # 删除
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[3]/div[3]/table/tbody/tr/td[3]/div/button[2]/span').click()
+        sleep(1)
+
+        # 重置
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[2]/div/button[2]').click()
+
+    # @pytest.mark.skip
+    @allure.feature('测试活动管理')
+    def test_activity(self):
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/ul/li[4]/span/a').click()
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/aside/div/div[1]/div').click() # 点击学校
+        sleep(1)
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[2]/button/span').click() # 添加活动
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form/div[1]/div/div[1]/input').send_keys('activity')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[3]/div/button[2]/span').click()
+        sleep(1)
+        # 查询
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[1]/div/div/input').send_keys('activity')
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[2]/div/button[1]/span').click()
+
     # 环境清理
     @classmethod
     def teardown_class(cls):
