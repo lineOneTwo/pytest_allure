@@ -92,6 +92,10 @@ class Test_login:
 
         # 翻页
         school_nextpage_img = img_dir_path + 'school_nextpage.png'
+        # 重置查询条件
+        self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[1]/div/form/div[2]/div/button[2]/span').click()
+        sleep(1)
+        # 翻下一页
         self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/section/main/div[4]/button/span').click()
         self.driver.save_screenshot(school_nextpage_img)
         sleep(1)
@@ -114,7 +118,8 @@ class Test_login:
             '/html/body/div[4]/div[1]/div/div[2]/table[1]/tbody/tr[6]/td[2]/div/span').click()
 
         # 切换到富文本
-        iframe = self.driver.find_element_by_xpath('//*[@id="ueditor_10"]')
+        form = self.driver.find_element_by_xpath('//*[@id="app"]/div/div/section/div/div[1]/div/div/div[2]/form')
+        iframe = self.driver.find_element_by_xpath('//*[@id="ueditor_0"]')
         self.driver.switch_to.frame(iframe)
         self.driver.find_element_by_xpath('/html/body/p').send_keys('测试内容输入')
         sleep(1)
